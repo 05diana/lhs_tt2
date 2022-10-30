@@ -1,0 +1,14 @@
+---
+services:
+  db:
+    image:  mariadb
+    restart:  always
+    container_name: db
+    volumes:
+      - data:/var/lib/postgresql/data
+    environment:
+      - MYSQL_PASSWORD=
+      - MYSQL_DATABASE=
+      - MYSQL_USER=
+volumes:
+  data:
