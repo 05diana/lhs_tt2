@@ -2,7 +2,7 @@
 ## Configure backed s3 for terraform
 
 ## Solution Architecture
-![Architecture](images/aws_architecture.svg)
+![Architecture](images/aws_architecture.png)
 
 ### Prerequisites
 Before running the CI/CD pipeline to deploy the infrastructure, you must satisfy the following prerequisites
