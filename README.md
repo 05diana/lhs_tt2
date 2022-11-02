@@ -3,13 +3,13 @@
 ## Solution Architecture
 ![Architecture](images/aws_architecture.drawio.png)
 
-### Prerequisites
+## Prerequisites
 Before running the CI/CD pipeline to deploy the infrastructure, you must satisfy the following prerequisites
 
 ### AWS account
 Be sure to contract with an AWS account with the necessary permissions to create the infrastructure, *administrator permissions*, for a productive account, I recommend that you limit the permissions to a minimum with only those necessary to operate this pipeline.
 
-#### Install or Upgrade [awscli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+#### Install or Upgrade awscli
 
 To ensure you are running the latest version of AWS CLI, run the following command:
 ```console
@@ -26,13 +26,14 @@ AWS Secret Access Key [None]: <AWS_SECRET_ACCESS_KEY>
 Default region name [None]: [us-east-1]
 Default output format [None]:
 ```
-### Install or Upgrade [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+#### Install or Upgrade [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 ```console
 brew tap hashicorp/tap
 brew install hashicorp/tap/terraform
 ```
+**Note:** go to the hashicorp website, [aws-get-started](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) if you want to use another    installation or update method more suitable for your Operating System.
 
-### Configure backed s3 for terraform
+#### Configure backed s3 for terraform
 You must create an S3 bucket and a table in dynamoDB
 ```console
 aws s3api create-bucket --region us-east-1 --bucket terraform-lwwjdattfsri2egsjecb2sdpufiusipyg15edkeoa4oe
