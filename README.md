@@ -1,13 +1,13 @@
 # technical_test_2
 
 ## Solution Architecture
-![Architecture](images/aws_architecture.drawio.png)
+![Architecture](images/aws_architecture.drawio.svg)
 
 ## Prerequisites
 Before running the CI/CD pipeline to deploy the infrastructure, you must satisfy the following prerequisites
 
 ### AWS account
-Be sure to contract with an AWS account with the necessary permissions to create the infrastructure, *administrator permissions*, for a productive account, I recommend that you limit the permissions to a minimum with only those necessary to operate this pipeline.
+Be sure to contract with an AWS account with the necessary permissions to create the infrastructure, ***administrator permissions***, for a productive account, I recommend that you limit the permissions to a minimum with only those necessary to operate this pipeline.
 
 #### Install or Upgrade awscli
 
@@ -42,7 +42,7 @@ aws dynamodb create-table --table-name tfstate-locking --attribute-definitions A
 ```
 ## Unit Testing
 ### Introduction
-The *API* has four methods, three of which are **getall:** with which you can query all the records in the Database.  **get:** with which you can query a record by **ID**.   **getn:**  with which you can query a record by username, and finally.  **add:**  method with which the records are inserted into the Database.
+The **API** has four methods, three of which are **getall:** with which you can query all the records in the Database.  **get:** with which you can query a record by ID.   **getn:**  with which you can query a record by username, and finally.  **add:**  method with which the records are inserted into the Database.
 
 ###APP Testing
 ```console
