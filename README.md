@@ -40,3 +40,14 @@ aws s3api create-bucket --region us-east-1 --bucket terraform-lwwjdattfsri2egsje
 aws s3api put-bucket-encryption --server-side-encryption-configuration '{"Rules": [{"ApplyServerSideEncryptionByDefault": {"SSEAlgorithm": "AES256"}}]}' --bucket terraform-lwwjdattfsri2egsjecb2sdpufiusipyg15edkeoa4oe
 aws dynamodb create-table --table-name tfstate-locking --attribute-definitions AttributeName=LockID,AttributeType=S --key-schema AttributeName=LockID,KeyType=HASH --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5
 ```
+## Unit Testing
+### Introduction
+The *API* has four methods, three of which are **getall:** with which you can query all the records in the Database.  **get:** with which you can query a record by **ID**.   **getn:**  with which you can query a record by username, and finally.  **add:**  method with which the records are inserted into the Database.
+
+###APP Testing
+```console
+curl -XGET https://<URL>/getall
+curl -XGET https://<URL>/get/<ID>
+curl -XGET https://<URL>/getn/<NAME>
+curl -XPOST https://<URL>/add\?name=<NAME>\&money=<MONY>
+```
