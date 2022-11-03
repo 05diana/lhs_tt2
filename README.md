@@ -13,7 +13,7 @@ Be sure to contract with an AWS account with the necessary permissions to create
 
 To ensure you are running the latest version of AWS CLI, run the following command:
 ```console
-curl -s "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+curl -s https://awscli.amazonaws.com/AWSCLIV2.pkg -o AWSCLIV2.pkg
 sudo installer -pkg ./AWSCLIV2.pkg -target /
 ```
 **Note:** go to the amazon website, [getting-started-install section](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) if you want to use another installation or update method more suitable for your Operating System.
@@ -44,8 +44,8 @@ aws dynamodb create-table --table-name tfstate-locking --attribute-definitions A
 ### Introduction
 The **API** has four methods, three of which are **getall:** with which you can query all the records in the Database.  **get:** with which you can query a record by ID.   **getn:**  with which you can query a record by username, and finally.  **add:**  method with which the records are inserted into the Database.
 
-###APP Testing
-```console
+### APP Testing
+```shell
 curl -XGET https://<URL>/getall
 curl -XGET https://<URL>/get/<ID>
 curl -XGET https://<URL>/getn/<NAME>
