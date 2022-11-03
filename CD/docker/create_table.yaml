@@ -1,0 +1,16 @@
+---
+- hosts:  localhost
+
+  tasks:
+    
+    - name: Pause 2 Seconds
+      pause:
+        seconds: 2
+
+    - name: Create client Table
+      mysql_query:
+        login_host: db
+        login_db:   lahaus
+        login_user: lahaus
+        login_password: password
+        query: CREATE TABLE if not exists clients (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255) NOT NULL, money INT NOT NULL);
