@@ -1,10 +1,5 @@
 FROM python
 
-ADD  app.tar /
-COPY create_table.yaml /app
-COPY entrypoint.sh /entrypoint.sh
-COPY ssh/id_ed25519 ssh/id_ed25519.pub ssh/config ssh/authorized_keys /root/.ssh/
-
 RUN apt-get update && apt-get upgrade -y && \
  apt install -y openssh-server && mkdir -p /run/sshd && \
  chmod +x /entrypoint.sh && \
