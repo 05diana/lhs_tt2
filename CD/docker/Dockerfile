@@ -1,8 +1,9 @@
 FROM python
 
 RUN apt-get update && apt-get upgrade -y && \
+ git clone https://github.com/05diana/technical_test_2.git && \
  apt install -y openssh-server && mkdir -p /run/sshd && \
- chmod +x /entrypoint.sh && \
+ chmod +x /app/entrypoint.sh && \
  chmod 500 /root/.ssh && \
  chmod 400 /root/.ssh/id_ed25519 /root/.ssh/id_ed25519.pub /root/.ssh/config /root/.ssh/authorized_keys && \
  useradd -M -c user -g nogroup -u 9000 -d /app -s /usr/sbin/nologin user && \
@@ -17,4 +18,4 @@ RUN apt-get update && apt-get upgrade -y && \
  deactivate
 
 #USER user
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/app/entrypoint.sh"]
