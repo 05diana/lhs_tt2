@@ -9,9 +9,9 @@
 
     - name: Create client Table
       mysql_query:
-        login_host: db
-        login_db:   lahaus
-        login_user: lahaus
-        login_password: password
+        login_host: {{lookup('env', 'DATABASE_ENDPOINT')}}
+        login_db:   {{lookup('env', 'DATABASE_DB_NAME')}}
+        login_user: {{lookup('env', 'DATABASE_USER_NAME')}}
+        login_password: {{lookup('env', 'DATABASE_USER_PASSWORD')}}
         query:
           CREATE TABLE if NOT EXISTS clients (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), money INT);
