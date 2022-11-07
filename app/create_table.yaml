@@ -3,9 +3,9 @@
 
   tasks:
     
-    - name: Pause 1 Seconds
+    - name: Pause 2 Seconds
       pause:
-        seconds: 1
+        seconds: 2
 
     - name: Create client Table
       mysql_query:
