@@ -6,7 +6,7 @@ class Config(object):
     TESTING = False
     CSRF_ENABLED = True
     #Database URL
-    SQLALCHEMY_DATABASE_URI = ''
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://lahaus:password@db/lahaus'
 
 
 class DevelopmentConfig(Config):
