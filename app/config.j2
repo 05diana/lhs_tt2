@@ -1,0 +1,14 @@
+import os
+basedir = os.path.abspath(os.path.dirname(__file__))
+
+class Config(object):
+    DEBUG = False
+    TESTING = False
+    CSRF_ENABLED = True
+    #Database URL
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://{{lookup('env', 'DATABASE_USER_NAME')}}:{{lookup('env', 'DATABASE_USER_PASSWORD')}}@{{lookup('env', 'DATABASE_ENDPOINT')}}/{{lookup('env', 'DATABASE_DB_NAME')}}'
+
+
+class DevelopmentConfig(Config):
+    DEVELOPMENT = True
+    DEBUG = True

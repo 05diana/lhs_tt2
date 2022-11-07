@@ -1,0 +1,13 @@
+---
+- hosts:  localhost
+  tasks:
+
+    - name: Generate create_table.yaml
+      template:
+        src:  "create_table.j2"
+        dest: "create_table.yaml"
+
+    - name: Generate config.py
+      template:
+        src:  "config.j2"
+        dest: "config.py"
