@@ -1,14 +1,16 @@
 import os
+import config
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-app.config.from_object(os.environ['APP_SETTINGS'])
+app.config.from_object(config.DevelopmentConfig)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 from models import Client
+## db.init_app(app)
 
 #Index
 @app.route("/")
@@ -16,20 +18,22 @@ def index():
     return "This is the app index"
 
 #Add client and money
-@app.route("/add")
+@app.route("/add", methods=["POST"])
 def add_client():
-    name=request.args.get('name')
-    money=request.args.get('money')
-    try:
-        client=Client(
-            name=name,
-            money=money
-        )
-        db.session.add(client)
-        db.session.commit()
-        return "Client added with id={}".format(client.id)
-    except Exception as e:
-	    return(str(e))
+    if request.method == "POST":
+        print(request.args.listvalues)
+        name=request.args.get('name')
+        money=request.args.get('money')
+        try:
+            client=Client(
+                name=name,
+                money=money
+            )
+            db.session.add(client)
+            db.session.commit()
+            return "Client added with id={}".format(client.id)
+        except Exception as e:
+	        return(str(e))
 
 #Get all clients
 @app.route("/getall")
