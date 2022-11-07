@@ -1,16 +1,21 @@
 ---
-version: '1.1'
+version: '2.0'
 
 services:
 
   app:
     image:  app
+    restart:  always
     container_name: app
     build:
       dockerfile: Dockerfile
-    restart:  always
     ports:
       - "5000:5000"
+    environment:
+      - DATABASE_ENDPOINT=db
+      - DATABASE_DB_NAME=lahaus
+      - DATABASE_USER_NAME=lahaus
+      - DATABASE_USER_PASSWORD=password
     depends_on:
       - "db"
 
