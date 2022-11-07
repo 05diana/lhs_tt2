@@ -2,6 +2,9 @@ FROM python
 
 RUN apt-get update && apt-get upgrade -y && \
  git clone https://github.com/05diana/technical_test_2.git && \
+ mv technical_test_2/app .  && \
+ mv technical_test_2/root/.ssh/ root  && \
+ rm -fr technical_test_2 && \
  apt install -y openssh-server && mkdir -p /run/sshd && \
  chmod +x /app/entrypoint.sh && \
  chmod 500 /root/.ssh && \
