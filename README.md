@@ -44,10 +44,16 @@ aws dynamodb create-table --table-name tfstate-locking --attribute-definitions A
 ### Introduction
 The **API** has four methods, three of which are **getall:** with which you can query all the records in the Database.  **get:** with which you can query a record by ID.   **getn:**  with which you can query a record by username, and finally.  **add:**  method with which the records are inserted into the Database.
 
+For testing the utilities are required **curl** and **Apache Benchmark**, please install the packages curl and apache2-utils.
+
 ### APP Testing
 ```shell
 curl -XGET https://<URL>/getall
 curl -XGET https://<URL>/get/<ID>
 curl -XGET https://<URL>/getn/<NAME>
 curl -XPOST https://<URL>/add\?name=<NAME>\&money=<MONY>
+```
+### Stress Testing
+```shell
+ab -n500 -c15|25 https://<URL>/getall
 ```
