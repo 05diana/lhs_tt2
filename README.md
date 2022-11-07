@@ -55,5 +55,5 @@ curl -XPOST https://<URL>/add\?name=<NAME>\&money=<MONY>
 ```
 ### Stress Testing
 ```shell
-ab -n500 -c15|25 https://<URL>/getall
+ab -n500 -c8|16|32 https://<URL>/getall
 ```
