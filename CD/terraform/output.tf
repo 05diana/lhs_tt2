@@ -1,4 +1,4 @@
-output "service_id" {
-  description = "URL that App Runner"
-  value       = aws_apprunner_service.apprunner.service_url
+
+output "service_url" {
+  value = "https://${aws_apprunner_service.service.service_url}"
 }
