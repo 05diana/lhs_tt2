@@ -12,10 +12,10 @@ services:
     ports:
       - "5000:5000"
     environment:
-      - DATABASE_ENDPOINT=db
-      - DATABASE_DB_NAME=lahaus
-      - DATABASE_USER_NAME=lahaus
-      - DATABASE_USER_PASSWORD=password
+      - "DATABASE_ENDPOINT=db:3306"
+      - "DATABASE_DB_NAME=ushuhuch"
+      - "DATABASE_USER_NAME=voyephoo"
+      - "DATABASE_USER_PASSWORD=r1SYCVOGZThrBjb0jYWoHRNz2yjhPcpVSvOHQRqQ"
     depends_on:
       - "db"
 
@@ -24,12 +24,12 @@ services:
     restart:  always
     container_name: db
     environment:
-      - MYSQL_ROOT_PASSWORD=superstrongpassword
-      - MYSQL_PASSWORD=password
-      - MYSQL_DATABASE=lahaus
-      - MYSQL_USER=lahaus
+      - "MYSQL_ROOT_PASSWORD=superstrongpassword"
+      - "MYSQL_PASSWORD=r1SYCVOGZThrBjb0jYWoHRNz2yjhPcpVSvOHQRqQ"
+      - "MYSQL_DATABASE=ushuhuch"
+      - "MYSQL_USER=voyephoo"
     volumes:
-      - data:/var/lib/mysql
+      - "data:/var/lib/mysql"
 
 volumes:
   data:

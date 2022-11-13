@@ -10,6 +10,7 @@
     - name: Create client Table
       mysql_query:
         login_host: {{lookup('env', 'DATABASE_ENDPOINT')}}
+        login_port: {{lookup('env', 'DATABASE_ENDPOINT')}}
         login_db:   {{lookup('env', 'DATABASE_DB_NAME')}}
         login_user: {{lookup('env', 'DATABASE_USER_NAME')}}
         login_password: {{lookup('env', 'DATABASE_USER_PASSWORD')}}
